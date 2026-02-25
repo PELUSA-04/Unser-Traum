@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UNSER TRAUM - Alojamiento / Cabañas | Villa Gral Belgrano </title>
+  <meta name="description" content="Tu refugio soñado en Villa General Belgrano.
+Naturaleza, descanso y la tranquilidad que estabas buscando.
+">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #203c2d;
+      --secondary: #16213e;
+      --accent: #0f3460;
+      --cta: #3d5142;
+      --cta-text: #ffffff;
+      --bg: #ffffff;
+      --bg-alt: #fcfdfd;
+      --text: #253c2c;
+      --text-light: #4c4d4c;
+      --radius: 12px;
+      --btn-radius: 8px;
+      --heading-font: 'Playfair Display', serif;
+      --body-font: 'Inter', sans-serif;
+      --container: 1280px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--body-font); background: var(--bg); color: var(--text); line-height: 1.6; }
+    h1,h2,h3,h4 { font-family: var(--heading-font); line-height: 1.2; }
+    img { display: block; width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    /* CONTAINER GLOBAL */
+    .container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 2rem; }
+
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(0,0,0,0.85); backdrop-filter: blur(12px); height: 70px; }
+    .nav .container { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 2.5rem; }
+    .nav-logo { font-family: var(--heading-font); font-size: 1.3rem; font-weight: 700; color: #fff; white-space: nowrap; flex-shrink: 0; display: flex; align-items: center; gap: 0.6rem; }
+    .nav-logo img { height: 38px; width: auto; filter: brightness(0) invert(1); object-fit: contain; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { color: rgba(255,255,255,0.8); font-size: 0.9rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: #fff; }
+
+    /* HERO */
+    .hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; }
+    .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.7) 100%); }
+    .hero-content { position: relative; z-index: 2; color: #fff; padding: 0 1.5rem; width: 100%; max-width: var(--container); }
+    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--cta); color: var(--cta-text); padding: 0.9rem 2rem; border-radius: var(--btn-radius); font-weight: 700; font-size: 1rem; transition: transform .2s, box-shadow .2s; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
+    .scroll-indicator { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 2; animation: bounce 2s infinite; }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+
+    /* SECTIONS */
+    section { padding: 6rem 0; }
+    section > .container { padding-left: 2rem; padding-right: 2rem; }
+    .section-header { text-align: center; margin-bottom: 4rem; }
+    .section-tag { display: inline-block; color: var(--cta); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .section-header h2 { font-size: clamp(1.8rem, 4vw, 3rem); color: var(--text); margin-bottom: 1rem; }
+    .section-header p { color: var(--text-light); max-width: 600px; margin: 0 auto; font-size: 1.05rem; }
+    .bg-alt { background: var(--bg-alt); }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .about-text .tag { color: var(--cta); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; display: block; margin-bottom: 0.75rem; }
+    .stats-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+    .stat-box { background: var(--bg-alt); padding: 1.25rem; border-radius: var(--radius); text-align: center; }
+    .stat-num { font-family: var(--heading-font); font-size: 2rem; font-weight: 700; color: var(--cta); }
+    .stat-label { font-size: 0.8rem; color: var(--text-light); margin-top: 0.25rem; }
+    .about-image { border-radius: calc(var(--radius) * 2); overflow: hidden; }
+    .about-image img { width: 100%; height: 620px; object-fit: cover; object-position: center; aspect-ratio: 1/1; }
+    .btn-cta { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--cta); color: var(--cta-text); padding: 0.85rem 1.75rem; border-radius: var(--btn-radius); font-weight: 700; transition: opacity .2s; margin-top: 1.5rem; }
+    .btn-cta:hover { opacity: 0.9; }
+
+    /* AMENITIES — flex wrap centrado */
+    .amenities-grid { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+    .amenity-item { text-align: center; width: calc((100% - 5rem) / 6); min-width: 100px; flex-shrink: 0; }
+    .amenity-item:not(.minimal) { background: var(--bg); border: 1px solid #e5e7eb; border-radius: var(--radius); padding: 1.25rem 1rem; transition: box-shadow .2s, border-color .2s; }
+    .amenity-item:not(.minimal):hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-color: var(--cta); }
+    .amenity-item.minimal { background: transparent; border: none; box-shadow: none; padding: 0.5rem; }
+    .amenity-label { font-size: 0.85rem; font-weight: 600; color: var(--text); display: block; }
+
+    /* GALLERY — 6 col dynamic grid, last row centered */
+    .gallery-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.75rem; justify-items: center; }
+    .gallery-item { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/3; width: 100%; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform .4s; }
+    .gallery-item:hover img { transform: scale(1.05); }
+
+    /* REVIEWS */
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .review-card { background: var(--bg); border: 1px solid #e5e7eb; border-radius: var(--radius); padding: 2rem; }
+    .review-stars { display: flex; gap: 2px; margin-bottom: 1rem; }
+    .review-text { color: var(--text-light); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.25rem; font-style: italic; }
+    .review-author { display: flex; align-items: center; gap: 0.75rem; }
+    .review-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--primary); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; flex-shrink: 0; }
+    .review-author span { font-weight: 600; font-size: 0.9rem; }
+
+    /* CTA BAND */
+    .cta-band { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: #fff; text-align: center; padding: 5rem 0; }
+    .cta-band h2 { font-size: clamp(1.8rem, 4vw, 3rem); margin-bottom: 1rem; }
+    .cta-band p { color: rgba(255,255,255,0.8); margin-bottom: 2rem; font-size: 1.05rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+    /* CONTACT */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .contact-info h2 { font-size: 2rem; margin-bottom: 0.75rem; }
+    .contact-info p { color: var(--text-light); margin-bottom: 2rem; }
+    .contact-item { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.5rem; }
+    .contact-icon { width: 44px; height: 44px; background: var(--bg-alt); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+    .contact-item-text strong { display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-light); margin-bottom: 0.2rem; }
+    .contact-item-text span { font-weight: 600; }
+    .wa-btn { display: inline-flex; align-items: center; gap: 0.75rem; background: #435240; color: #ffffff; padding: 1rem 2rem; border-radius: var(--btn-radius); font-weight: 700; font-size: 1rem; transition: opacity .2s; margin-top: 1.5rem; }
+    .wa-btn:hover { opacity: 0.9; }
+    .contact-pre-text { color: var(--text-light); font-size: 1rem; line-height: 1.6; margin-bottom: 0; margin-top: 1.5rem; }
+
+    /* FOOTER */
+    .footer { background: var(--primary); color: rgba(255,255,255,0.7); padding: 3rem 0; text-align: center; }
+    .footer-logo { font-family: var(--heading-font); font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .footer p { margin-bottom: 1.5rem; font-size: 0.9rem; }
+    .footer-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .footer-links a { color: rgba(255,255,255,0.6); font-size: 0.85rem; transition: color .2s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+
+    /* SOCIAL LINKS */
+    .social-links { display: flex; gap: 0.75rem; margin-top: 1.25rem; flex-wrap: wrap; }
+    .social-btn { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: var(--btn-radius); background: #fcfdfd; color: #3d5142; transition: transform .2s, opacity .2s; border: 1px solid #e5e7eb; }
+    .social-btn:hover { transform: translateY(-2px); opacity: 0.85; }
+
+    /* WA FLOAT */
+    .wa-float { position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 9999; width: 58px; height: 58px; background:transparent;box-shadow:none;color:#405141; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(0,0,0,0.25); transition: transform .2s; }
+    .wa-float:hover { transform: scale(1.1); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .amenity-item { width: calc((100% - 2rem) / 3); }
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      section { padding: 4rem 0; }
+      .container { padding-left: 1.25rem; padding-right: 1.25rem; }
+    }
+    @media (max-width: 580px) {
+      .amenity-item { width: calc((100% - 1rem) / 2); }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="https://wa.me/5493543601178?text=Hola!%20Consulto%20sobre%20UNSER%20TRAUM." target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#405141"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+
+  <nav class="nav">
+    <div class="container">
+      <div class="nav-logo">
+        
+        <span>Unser  Traum</span>
+      </div>
+      <div class="nav-links">
+        <a href="#nosotros">Nosotros</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#galeria">Galería</a>
+        
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"><img src="https://base44.app/api/apps/69986abb63cbf5c410122eef/files/public/69986abb63cbf5c410122eef/4da0e37ce_476833175.jpg" alt="UNSER TRAUM"></div>
+    <div class="hero-overlay"></div>
+    <div id="hero-content" class="hero-content">
+      
+      <h1 style="font-size:55px;text-align:center;font-weight:700;color:#ffffff;line-height:1.15;margin-bottom:50px;">UNSER TRAUM</h1>
+      <p style="font-size:16px;text-align:center;font-weight:400;color:rgba(255,255,255,0.85);line-height:1.6;max-width:650px;margin-left:auto;margin-right:auto;margin-bottom:38px;;margin-bottom:2.5rem;">Tu refugio soñado en Villa General Belgrano.<br>Naturaleza, descanso y la tranquilidad que estabas buscando.<br></p>
+      <div class="hero-btns">
+        <a href="https://wa.me/5493543601178?text=Hola!%20Consulto%20sobre%20UNSER%20TRAUM." target="_blank" class="btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Consultar por WhatsApp</a>
+      </div>
+    </div>
+    <div class="scroll-indicator"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2"><path d="M7 10l5 5 5-5"/></svg></div>
+  </section>
+
+  <!-- NOSOTROS -->
+  <section id="nosotros">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <span class="tag">Nuestro alojamiento</span>
+          <h2 style="font-size:36px;text-align:left;font-weight:700;color:#2d3748;line-height:1.2;margin-bottom:30px;">Bienvenidos!</h2>
+          <p style="font-size:16px;text-align:left;font-weight:400;color:#718096;line-height:1.8;margin-bottom:20px;">Unser Traum es una casa ubicada en Villa General Belgrano, ideal para quienes buscan privacidad y comodidad en un entorno tranquilo. <br><br>La propiedad cuenta con 2 dormitorios, ofrece espacios amplios y funcionales, con pileta privada y todas las comodidades necesarias para una estadía confortable.<br><br>El alojamiento con vistas al jardín que se encuentra en Villa General Belgrano, a 15 min a pie de Brewer Park Villa General Belgrano y a 49 km de Museo Manuel de Falla. Este alojamiento ofrece piscina privada, wifi gratis y parking privado gratis.<br></p>
+          
+          <a href="https://wa.me/5493543601178?text=Hola!%20Consulto%20sobre%20UNSER%20TRAUM." target="_blank" class="btn-cta"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Reservar</a>
+        </div>
+        <div class="about-image"><img src="https://base44.app/api/apps/69986abb63cbf5c410122eef/files/public/69986abb63cbf5c410122eef/cd8f5454a_476701828.jpg" alt="UNSER TRAUM"></div>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- SERVICIOS -->
+  <section id="servicios" class="bg-alt">
+    <div class="container">
+      <div class="section-header"><span class="section-tag">    </span><h2>Nuestros Servicios</h2><p>un lugar para desconectar de todo</p></div>
+      <div class="amenities-grid"><div class="amenity-item minimal"><span style="color:#3f5040;display:block;text-align:center;margin-bottom:8px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 12h20M2 17c2-2 4-2 6 0s4 2 6 0 4-2 6 0M7 12V5a2 2 0 014 0v1"/></svg></span><span class="amenity-label" style="font-size:14px;text-align:center;font-weight:600;color:#494a4b;line-height:1.4;margin-bottom:20px;">Piscina privada</span></div><div class="amenity-item minimal"><span style="color:#3f5040;display:block;text-align:center;margin-bottom:8px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01"/></svg></span><span class="amenity-label" style="font-size:14px;text-align:center;font-weight:600;color:#494a4b;line-height:1.4;margin-bottom:20px;">Wifi gratis</span></div><div class="amenity-item minimal"><span style="color:#3f5040;display:block;text-align:center;margin-bottom:8px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span><span class="amenity-label" style="font-size:14px;text-align:center;font-weight:600;color:#494a4b;line-height:1.4;margin-bottom:20px;">Parking privado gratuito</span></div><div class="amenity-item minimal"><span style="color:#3f5040;display:block;text-align:center;margin-bottom:8px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9.59 4.59A2 2 0 1111 8H2m10.59 11.41A2 2 0 1014 16H2m15.73-8.27A2.5 2.5 0 1119.5 12H2"/></svg></span><span class="amenity-label" style="font-size:14px;text-align:center;font-weight:600;color:#494a4b;line-height:1.4;margin-bottom:20px;">Aire acondicionado</span></div><div class="amenity-item minimal"><span style="color:#3f5040;display:block;text-align:center;margin-bottom:8px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4M6 8h.01M10 8h.01"/></svg></span><span class="amenity-label" style="font-size:14px;text-align:center;font-weight:600;color:#494a4b;line-height:1.4;margin-bottom:20px;">Cocina equipada</span></div><div class="amenity-item minimal"><span style="color:#3f5040;display:block;text-align:center;margin-bottom:8px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span><span class="amenity-label" style="font-size:14px;text-align:center;font-weight:600;color:#494a4b;line-height:1.4;margin-bottom:20px;">Lavadora</span></div><div class="amenity-item minimal"><span style="color:#3f5040;display:block;text-align:center;margin-bottom:8px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M17 2l-5 5-5-5"/></svg></span><span class="amenity-label" style="font-size:14px;text-align:center;font-weight:600;color:#494a4b;line-height:1.4;margin-bottom:20px;">TV</span></div><div class="amenity-item minimal"><span style="color:#3f5040;display:block;text-align:center;margin-bottom:8px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22V12M12 12C12 7 7 4 3 6c2 3 5 5 9 6zM12 12c0-5 5-8 9-6-2 3-5 5-9 6z"/></svg></span><span class="amenity-label" style="font-size:14px;text-align:center;font-weight:600;color:#494a4b;line-height:1.4;margin-bottom:20px;">Vistas al jardín</span></div><div class="amenity-item minimal"><span style="color:#3f5040;display:block;text-align:center;margin-bottom:8px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span><span class="amenity-label" style="font-size:14px;text-align:center;font-weight:600;color:#494a4b;line-height:1.4;margin-bottom:20px;">Ropa de cama y toallas incluidas</span></div><div class="amenity-item minimal"><span style="color:#3f5040;display:block;text-align:center;margin-bottom:8px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span><span class="amenity-label" style="font-size:14px;text-align:center;font-weight:600;color:#494a4b;line-height:1.4;margin-bottom:20px;">Alojamiento completo de uso exclusivo</span></div></div>
+    </div>
+  </section>
+
+  <section id="parallax-0" style="position:relative;height:40vh;background-image:url('https://base44.app/api/apps/69986abb63cbf5c410122eef/files/public/69986abb63cbf5c410122eef/c391140c5_villa-general-belgrano-cordoba.jpg');background-size:cover;background-position:center;background-attachment:fixed;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:rgba(0,0,0,0.6);"></div>
+  <div style="position:relative;z-index:2;font-size:16px;color:#ffffff;text-align:center;font-weight:600;max-width:700px;margin:0 auto;padding:0 1.5rem;">Donde el tiempo se mueve más lento</div>
+</section>
+
+  
+  <!-- GALERÍA -->
+  <section id="galeria">
+    <div class="container">
+      <div class="section-header"><span class="section-tag"> </span><h2>Nuestro Espacio</h2></div>
+      <div class="gallery-grid"><div class="gallery-item"><img src="https://base44.app/api/apps/69986abb63cbf5c410122eef/files/public/69986abb63cbf5c410122eef/4da0e37ce_476833175.jpg" alt="UNSER TRAUM foto 1" loading="lazy"></div><div class="gallery-item"><img src="https://base44.app/api/apps/69986abb63cbf5c410122eef/files/public/69986abb63cbf5c410122eef/cd8f5454a_476701828.jpg" alt="UNSER TRAUM foto 2" loading="lazy"></div><div class="gallery-item"><img src="https://base44.app/api/apps/69986abb63cbf5c410122eef/files/public/69986abb63cbf5c410122eef/6944482ff_476701817.jpg" alt="UNSER TRAUM foto 3" loading="lazy"></div><div class="gallery-item"><img src="https://base44.app/api/apps/69986abb63cbf5c410122eef/files/public/69986abb63cbf5c410122eef/91b5d4f4b_476832966.jpg" alt="UNSER TRAUM foto 4" loading="lazy"></div><div class="gallery-item"><img src="https://base44.app/api/apps/69986abb63cbf5c410122eef/files/public/69986abb63cbf5c410122eef/c7ff59770_476701826.jpg" alt="UNSER TRAUM foto 5" loading="lazy"></div><div class="gallery-item"><img src="https://base44.app/api/apps/69986abb63cbf5c410122eef/files/public/69986abb63cbf5c410122eef/980f16557_476833049.jpg" alt="UNSER TRAUM foto 6" loading="lazy"></div><div class="gallery-item"><img src="https://base44.app/api/apps/69986abb63cbf5c410122eef/files/public/69986abb63cbf5c410122eef/0bebf78b7_476701819.jpg" alt="UNSER TRAUM foto 7" loading="lazy"></div><div class="gallery-item"><img src="https://base44.app/api/apps/69986abb63cbf5c410122eef/files/public/69986abb63cbf5c410122eef/7b98937b5_476833127.jpg" alt="UNSER TRAUM foto 8" loading="lazy"></div><div class="gallery-item"><img src="https://base44.app/api/apps/69986abb63cbf5c410122eef/files/public/69986abb63cbf5c410122eef/6be2185b7_476701843.jpg" alt="UNSER TRAUM foto 9" loading="lazy"></div><div class="gallery-item"><img src="https://base44.app/api/apps/69986abb63cbf5c410122eef/files/public/69986abb63cbf5c410122eef/5b39e5722_476701851.jpg" alt="UNSER TRAUM foto 10" loading="lazy"></div><div class="gallery-item"><img src="https://base44.app/api/apps/69986abb63cbf5c410122eef/files/public/69986abb63cbf5c410122eef/7597da21e_476833244.jpg" alt="UNSER TRAUM foto 11" loading="lazy"></div><div class="gallery-item"><img src="https://base44.app/api/apps/69986abb63cbf5c410122eef/files/public/69986abb63cbf5c410122eef/3db9ec5dd_476701831.jpg" alt="UNSER TRAUM foto 12" loading="lazy"></div></div>
+    </div>
+  </section>
+
+  
+
+
+
+  
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="container">
+      <div class="section-header"><span class="section-tag"> </span><h2>Tu descanso empieza acá</h2><p>Viví la experiencia Unser Traum</p></div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item"><div class="contact-icon">📍</div><div class="contact-item-text"><strong>Dirección</strong><span>Avenida Comechingones 544</span><span style="display:block;color:var(--text-light);font-size:0.9em;margin-top:0.1rem;">Villa Gral Belgrano , Córdoba</span></div></div>
+          
+          <div class="contact-item"><div class="contact-icon">🕐</div><div class="contact-item-text"><strong>Horarios</strong><span>Lun-Dom-08-22hs</span></div></div>
+          <p class="contact-pre-text">Tu próxima pausa está 
+a un mensaje de distancia</p>
+          <a href="https://wa.me/5493543601178?text=Hola!%20Consulto%20sobre%20UNSER%20TRAUM." target="_blank" class="wa-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Reservá tu estadía por WhatsApp</a>
+          
+        </div>
+        <div><iframe src="https://maps.google.com/maps?q=Avenida%20Comechingones%20544%20Villa%20Gral%20Belgrano%20%20Argentina&output=embed" width="100%" height="380" style="border:0;border-radius:12px;display:block;" allowfullscreen loading="lazy"></iframe></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">UNSER TRAUM</div>
+      <p>Avenida Comechingones 544 · Villa Gral Belgrano  · Córdoba</p>
+      <div class="footer-links">
+        <a href="#nosotros">Nosotros</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#galeria">Galería</a>
+        <a href="#contacto">Contacto</a>
+        <a href="https://wa.me/5493543601178?text=Hola!%20Consulto%20sobre%20UNSER%20TRAUM." target="_blank">WhatsApp</a>
+      </div>
+      <p class="footer-copy">© 2026 UNSER TRAUM. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
